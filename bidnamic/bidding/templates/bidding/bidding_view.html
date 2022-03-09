@@ -1,0 +1,61 @@
+{% extends "base_logged_in.html" %} 
+{% comment %} Base form template for
+creating and editing bidding items. {% endcomment %}
+{% block styles %}
+{{block.super }}
+
+{% endblock %} {% block content %}
+         <div class="row d-flex justify-content-center">
+			            <div class="card my-3 w-75 p-5">
+
+               <h1 class="card-title">
+					Bidding Title: {{ bidding.title }}
+				</h1>
+               <div class="card-body">
+					  <div class="row ">
+
+				   <h4>
+					Name: {{ bidding.first_name }} {{ bidding.surname }}   
+				   </h4>
+				   <h4>
+					Date of Birth: {{ bidding.dob }}   
+				   </h4>
+				   <h4>
+					Company: {{ bidding.company_name }}   
+				   </h4>
+				   <h4>
+					Address: {{ bidding.address_1 }} {{ bidding.address_2 }}   
+				   </h4>
+				   <h4>
+					City: {{ bidding.city }}   
+				   </h4>
+				   <h4>
+					State: {{ bidding.state }}   
+				   </h4>
+				   <h4>
+					Postcode: {{ bidding.postcode }}   
+				   </h4>
+				   <h4>
+					telephone: {{ bidding.telephone }}   
+				   </h4>
+				   <h4>
+					Bidding: {{ bidding.bidding }}
+				   </h4>
+				   <h4>
+					Google Ads Account ID: {{ bidding.google_ads_account_id }}
+				   </h4>
+				      <small>H: High | M: Medium | L: Low</small>
+					</div>
+					  <div class="row mt-4">
+						  <div class="col">
+							  <a class="btn btn-light" href="{% url "bidding_edit" bidding.id %}">Update</a>
+							  <a class="btn btn-primary" href="{% url "biddings" %}">Back</a>
+							</div>
+				</div>
+			</div>
+				
+		</div>
+</div>
+
+
+{% endblock %}

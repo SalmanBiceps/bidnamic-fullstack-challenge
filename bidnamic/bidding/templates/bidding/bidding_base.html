@@ -1,0 +1,318 @@
+{% extends "base_logged_in.html" %} 
+{% comment %} Base form template for
+creating and editing bidding items. {% endcomment %}
+{% block styles %}
+{{block.super }}
+
+{% endblock %} {% block content %}
+         <div class="row d-flex justify-content-center">
+			            <div class="card my-3 w-75 p-5">
+
+               <h1 class="card-title">
+					{% block bidding_item_header_text %}{% endblock %}
+				</h1>
+               <div class="card-body">
+
+				<form class="" action="" method="post">
+					{% csrf_token %}
+	
+					<div class="row mb-5	">
+						<div class="col-6">	
+							<div class="form-group">
+								<label for="title" class="col "
+								>Title</label
+								>
+								<div class="col">
+									<input
+									type="text"
+									name="title"
+									id="title"
+									
+									maxlength="127"
+									class="form-control"
+									aria-label="Title"
+									{% if form.title.value %}
+									value="{{ form.title.value }}"
+									{% endif %}
+									/>
+									{{ form.title.errors }}
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="company_name" class="col "
+								>Company</label
+								>
+								<div class="col">
+									<input
+									type="text"
+									name="company_name"
+									id="company_name"
+									
+									maxlength="127"
+									class="form-control"
+									aria-label="company_name"
+									{% if form.company_name.value %}
+									value="{{ form.company_name.value }}"
+									{% endif %}
+									/>
+									{{ form.company.errors }}
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="first_name" class="col "
+								>First Name</label
+								>
+								<div class="col">
+									<input
+									type="text"
+									name="first_name"
+									id="first_name"
+									
+									class="form-control"
+									aria-label="FirstName"
+									{% if form.first_name.value %}
+									value="{{ form.first_name.value }}"
+									{% endif %}
+									/>
+									{{ form.first_name.errors }}
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="surname" class="col "
+								>Surname</label
+								>
+								<div class="col">
+									<input
+									type="text"
+										name="surname"
+										id="surname"
+										
+										maxlength="127"
+										class="form-control"
+										aria-label="Surname"
+										{% if form.surname.value %}
+										value="{{ form.surname.value }}"
+										{% endif %}
+										/>
+										{{ form.surname.errors }}
+								</div>
+								
+							</div>
+							<div class="form-group">
+								<label for="dob" class="col "
+								>Date of Birth</label
+								>
+								<div class="col">
+									<input
+									type="date" 
+									name="dob"
+									id="dob"
+									
+									class="form-control text-center"
+									aria-label="Date of Birth"
+									{% if form.dob.value %}
+									value="{{ placement.form.dob.value |date:"mm dd yyyy" }}  }}"
+									{% endif %}
+									/>
+									{{ form.dob.errors }}
+								</div>
+							</div>
+							<div class="form-group">
+								<label for="bidding" class="col "
+								>Bidding</label
+								>
+								<div class="col">
+									
+									{{ form.bidding }}
+									{{ form.bidding.errors }}
+								</div>
+						</label>
+							</div>
+
+						</div>
+	
+						<div class="col-6 ">
+						
+							<div class="form-group">
+								<label
+									for="address_1"
+									class="col  "
+									>Address 1</label
+								>
+								<div class="col">
+									<input
+										type="text"
+										name="address_1"
+										
+										id="address_1"
+										class="form-control"
+										aria-label="Address 1"
+										{% if form.address_1.value %}
+										value="{{ form.address_1.value }}"
+										{% endif 									%}
+									/>
+									{{ form.address_1.errors }}
+								</div>
+
+							</div>
+							<div class="form-group">
+								<label
+									for="address_2"
+									class="col  "
+									>Address 2</label
+								>
+								<div class="col">
+									<input
+										type="text"
+										name="address_2"
+										id="address_2"
+										
+
+											class="form-control"
+										aria-label="Address 2"
+										{% if form.address_2.value %}
+										value="{{ form.address_2.value }}"
+										{% endif 									%}
+									/>
+									{{ form.address_2.errors }}
+								</div>
+
+							</div>
+
+							<div class="form-group">
+								<label
+								for="city"
+								class="col  "
+								>City</label
+								>
+								<div class="col">
+									<input
+										type="text"
+										
+										
+										name="city"
+										id="city"
+										class="form-control"
+										aria-label="City"
+										{% if form.city.value %}
+										value="{{ form.city.value }}"
+										{% endif 									%}
+										/>
+										{{ form.city.errors }}
+								</div>
+							</div>
+							<div class="form-group">
+								<label
+								for="state"
+								class="col  "
+								>State</label
+								>
+								<div class="col">
+									<input
+									type="text"
+									
+									
+									name="state"
+									id="state"
+									class="form-control"
+									aria-label="State"
+									{% if form.state.value %}
+									value="{{ form.state.value }}"
+									{% endif 									%}
+									/>
+									{{ form.state.errors }}
+								</div>
+							</div>
+							<div class="form-group">
+								<label
+								for="postcode"
+								class="col  "
+								>Postcode</label
+								>
+								<div class="col">
+									<input
+									type="text"
+									
+									
+									name="postcode"
+									id="postcode"
+									class="form-control"
+									aria-label="Postcode"
+									{% if form.postcode.value %}
+									value="{{ form.postcode.value }}"
+									{% endif 									%}
+									/>
+									{{ form.postcode.errors }}
+								</div>
+							</div>
+							<div class="form-group">
+								<label
+								for="telephone"
+								class="col  "
+								>Telephone</label
+								>
+								<div class="col">
+									<input
+									type="text"
+									name="telephone"
+									id="telephone"
+									class="form-control"
+									aria-label="Telephone"
+									{% if form.telephone.value %}
+									value="{{ form.telephone.value }}"
+									{% endif 									%}
+									/>
+									{{ form.telephone.errors }}
+								</div>
+							</div>
+							<div class="form-group">
+								<label
+								for="google_ads_account_id"
+								class="col  "
+								>Google Ads Account ID</label
+								>
+								<div class="col">
+									<input
+									type="text"
+									name="google_ads_account_id"
+									id="google_ads_account_id"
+									class="form-control"
+									aria-label="google_ads_account_id"
+									{% if form.google_ads_account_id.value %}
+									value="{{ form.google_ads_account_id.value }}"
+									{% endif 									%}
+									/>
+									{{ form.google_ads_account_id.errors }}
+								</div>
+							</div>
+						</div>
+					</div>
+	
+				
+	
+					<div class="row">
+						<div class="col">
+							{% if message %}
+							<p class="text-success">{{ message }}</p>
+							{% endif %}
+	
+							<div class="form-group">
+								<div class="col-sm-offset-1 col-sm-11 submit-col">
+									<button type="submit" class="btn btn-primary">
+										{% block bidding_item_submit_button_text %}{% endblock %}
+									</button>
+									<a class="btn btn-default" href="{% url "home" %}"
+										>Back</a
+									>
+	
+									{% block bidding_item_additional_buttons %}{% endblock %}
+								</div>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+
+		</div>
+</div>
+{% endblock %}

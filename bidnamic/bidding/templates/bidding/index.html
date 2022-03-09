@@ -1,0 +1,52 @@
+{% extends "base_logged_in.html" %}
+
+{% comment %}
+Template for editing user account information.
+{% endcomment %}
+
+{% block styles %}
+  {{ block.super }}
+{% endblock %}
+
+{% block content %}
+         
+         <div class="row d-flex justify-content-center">
+            <div class="card my-3 w-75 p-5">
+               <h1 class="card-title">Biddings</h1>
+               <h4 class="card-subtitle ">
+                  Welcome back, {{ request.user.first_name }}
+                  {{request.user.last_name}}
+               </h4>
+               <hr> 
+               <div class="card-body">
+                   {% for bidding in biddings %}
+                     <div class="container-fluid my-2 px-0">
+                        <div class="row px-0">
+                           <div class="col-2 px-0">
+                              <h5>{{ bidding.title }}</h5>
+                           </div>
+                           
+                           <div class="col-3 text-align-right text-right">
+                              <a
+                                 class="btn btn-primary shadow-sm p-3 px-3"
+                                 href=" {% url "bidding_view" bidding.id %} "
+                                 >
+                                 <h6>View</h6>
+                              </a> 
+                              <a
+                                 class="btn btn-light shadow-sm p-3 px-3"
+                                 href=" {% url "bidding_edit" bidding.id %} "
+                                 >
+                                 <h6>Update</h6>
+                              </a>
+                           </div>
+                        </div>
+                     </div>
+                  {% endfor %}
+                  <a class="btn btn-success py-3 mt-5" href="{% url "biddings_create" %}">
+                     <h6>Create New Bidding</h6>
+                  </a>
+               </div>
+            </div>
+         </div>
+{% endblock %}
