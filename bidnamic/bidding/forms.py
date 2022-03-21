@@ -50,7 +50,7 @@ class BiddingForm(forms.ModelForm):
         return data
     def clean_dob(self):
         dob = self.cleaned_data['dob']
-        print("hiiiiiiiii", self.cleaned_data['dob'])
+        # print("hiiiiiiiii", self.cleaned_data['dob'])
         age = (date.today() - dob).days/365
         if age < 18:
             raise ValidationError(

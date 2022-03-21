@@ -41,8 +41,7 @@ INSTALLED_APPS = [
     'address',
     'rest_framework',
     'accounts',
-    'tests',
-
+    'bidnamic'
 ]
 
 MIDDLEWARE = [

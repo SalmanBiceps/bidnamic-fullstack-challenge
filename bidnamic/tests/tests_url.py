@@ -1,6 +1,7 @@
 from django.test import SimpleTestCase
 from django.urls import reverse, resolve
 from bidding .views import biddings_view, bidding_create_view, bidding_edit_view
+
 class TestUrls(SimpleTestCase):
     def test_biddings_url_is_resolved(self):
         url = reverse('biddings')
