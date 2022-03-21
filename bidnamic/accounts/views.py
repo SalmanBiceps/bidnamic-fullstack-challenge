@@ -59,7 +59,6 @@ def signup(request):
 
     if request.method == 'POST':
         form = CreateAccountForm(request.POST)
-
         if form.is_valid():
             try:
                 user = _handle_create_account(request.POST)
@@ -148,12 +147,12 @@ def _handle_create_account(post_data):
     if post_data['password'] != post_data['password2']:
         raise FormInputError('Passwords do not match')
     validate_form_password(post_data['password'])
+    validate_digits_letters(post_data['first_name'],'first_name')
+    validate_digits_letters(post_data['last_name'], 'last_name')
     new_user = User.objects.create_user(post_data['username'],
                                         post_data['email'],
                                         post_data['password'])
-    validate_digits_letters(post_data['first_name'],'first_name')
     new_user.first_name = post_data['first_name']
-    validate_digits_letters(post_data['last_name'], 'last_name')
     new_user.last_name = post_data['last_name']
     new_user.save()
 
